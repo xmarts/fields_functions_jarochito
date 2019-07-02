@@ -1,0 +1,84 @@
+<odoo>
+  <data>
+
+    <!-- Menu item para clase -->
+
+    <record id="class_product_view" model="ir.actions.act_window">
+      <field name='name'>Clase</field>
+      <field name='res_model'>class.product</field>
+      <field name='view_mode'>tree,form</field>
+    </record>
+
+     <menuitem 
+        id="class_product" name="Clase" 
+        parent="stock.menu_product_in_config_stock" sequence="0" action="class_product_view"/>
+
+    <!-- Menu item para presentacion -->
+
+    <record id="presentation_product_view" model="ir.actions.act_window">
+      <field name="name">Presentación</field>
+      <field name="res_model">presentation.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id="presentation_product" name="Presentación"
+        parent="stock.menu_product_in_config_stock" sequence="1" action="presentation_product_view"/>
+
+      <!-- Menu item para tipo de contenedor -->
+
+    <record id="type_container_product_view" model="ir.actions.act_window">
+      <field name="name">Cod. Tipo de envase</field>
+      <field name="res_model">typecontainer.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="type_container_product" name="Cod. Tipo de envase"
+      parent="stock.menu_product_in_config_stock" sequence="2" action="type_container_product_view"/>
+
+    <!-- Menu item para sabor -->
+
+    <record id="taste_product_view" model="ir.actions.act_window">
+      <field name="name">Sabor</field>
+      <field name="res_model">taste.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="taste_product" name="Sabor"
+      parent="stock.menu_product_in_config_stock" sequence="3" action="taste_product_view"/>
+      
+      <!-- Menu item para marca -->
+
+    <record id="brand_product_view" model="ir.actions.act_window">
+      <field name="name">Código de Marca</field>
+      <field name="res_model">brand.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem id="brand_product" name="Código de Marca"
+      parent="stock.menu_product_in_config_stock" sequence="4" action="brand_product_view"/>
+
+    <record id="labels_pallets_id" model="ir.actions.act_window">
+      <field name='name'>Etiquetas tarimas</field>
+      <field name='type'>ir.actions.act_window</field>
+      <field name='res_model'>labels.pallets</field>
+      <field name='view_type'>form</field>
+      <field name='view_mode'>tree,form</field>
+    </record>
+
+    <menuitem 
+      id="pallets_labels" name="Etiquetas tarimas" 
+      parent="stock.menu_stock_inventory_control" sequence="0" action="labels_pallets_id"/>
+
+    <record id="pallets_view" model="ir.actions.act_window">
+      <field name='name'>Tarimas</field>
+      <field name='res_model'>pallets</field>
+      <field name='view_mode'>tree,form</field>
+    </record>
+
+     <menuitem 
+      id="pallets_id" name="Tarimas" 
+      parent="stock.menu_product_in_config_stock" sequence="0" action="pallets_view"/>
+
+  </data>
+</odoo>

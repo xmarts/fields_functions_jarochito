@@ -1,0 +1,85 @@
+<odoo>
+	
+	<template id="print_pallets">
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="web.basic_layout">
+					<div class="page">
+						<div class="row">
+							<div class="col-12">
+								<span t-field="o.name" style="font-size: 50px;" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 text-center">
+								<strong> <span t-field="o.pallet" style="font-size:60px;"/> </strong> 
+							</div>
+						</div>
+						<div class="row">
+							<t t-set="codebar" t-value="o.name,o.pallet,o.turn,o.date" />
+							<div class="col-12 text-center">
+								<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128',codebar, 1000, 200)" />
+								<!-- <span t-esc="codebar" /> -->
+							</div>
+						</div>
+						<hr style="background-color:#000; height:2px;" />
+						<div class="row" style="margin-top: 1em; margin-bottom: 1em;">
+							<div class="col-6 text-center">
+								<strong style="font-size:50px;">Turno:</strong>	<span t-field="o.turn" style="font-size:50px; margin-left:1em;" />
+							</div>
+							<div class="col-6 text-center">
+								<strong style="font-size:50px;">Fecha:</strong>	<span t-field="o.date" style="font-size:50px; margin-left:1em;" />
+							</div>
+						</div>
+						<hr style="background-color:#000; height:2px;" />
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+
+	<!--<record id="paperformat_ticket" model="report.paperformat">
+            <field name="name">Recibo Ticket</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">160</field>
+            <field name="page_width">75</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">2</field>
+            <field name="margin_bottom">2</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">1</field>
+            <field name="dpi">130</field>
+	</record>-->
+
+	 <record id="paperformat_ticket" model="report.paperformat">
+		<field name="name">Point Of Sale Receipt</field>
+		<field name="default" eval="True"/>
+		<field name="format">custom</field>
+		<field name="page_height">90</field>
+		<field name="page_width">360</field>
+		<field name="orientation">Portrait</field>
+		<field name="margin_top">3</field>
+		<field name="margin_bottom">3</field>
+		<field name="margin_left">3</field>
+		<field name="margin_right">3</field>
+		<field name="header_line" eval="False" />
+		<field name="header_spacing">3</field>
+		<field name="dpi">130</field>
+	</record>
+
+	<report
+            string="Imprimir etiquetas"
+            id="action_print_pallets"
+            model="labels.pallets"
+            report_type="qweb-pdf"
+            name="fields_functions_jarochito.print_pallets"
+            file="fields_functions_jarochito.print_pallets"
+            paperformat="fields_functions_jarochito.paperformat_ticket"
+
+            
+	/>
+
+</odoo>

@@ -1,0 +1,111 @@
+<odoo>
+  <data>
+
+    <!-- Añadiendo un nuevo page con campos en la vista del producto -->
+
+    <record id="add_page_description_product" model="ir.ui.view">
+      <field name="name">add.page.description.product</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+          <xpath expr="//page[@name='inventory']" position="after">
+            <page string="Descripcion del producto">
+              <group>
+                <group>
+                  <field name="clase_prod" string="Clase" />
+                  <field name="presentation_prod" string="Presentación" />
+                  <field name="code_container_prod" string="Cod. Tipo de envase" />
+                </group>
+                <group>
+                  <field name="taste_product" string="Sabor" />
+                  <field name="brand_product" string="Código de marca" />
+                </group>
+              </group>
+            </page>
+          </xpath>
+        </field>
+    </record>
+  
+    <!-- Añadiendo campos en la vista de contacto -->
+
+    <record id="add_camp_tarif" model="ir.ui.view">
+      <field name="name">add.camp.tarif</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='child_ids']/form/sheet/group/group[2]//field[@name='name']" position="before">
+          <group>
+            <field name="rate_address" string="Tarifa" />
+          </group>
+        </xpath>
+        <xpath expr="//field[@name='property_product_pricelist']" position="after">
+          <field name="most_ieps" string="Mostrar IEPS" invisible="1"/>
+          <field name="number_sucursal" string="Numero de sucursal" />
+          <field name="type_suc" string="Tipo" />
+          <field name="gln" string="GLN" />
+          <field name="number_provideer" string="Numero de proveedor" />
+          <field name="format_suc" string="Formato entrega" invisible="1" />
+        </xpath>
+      </field>
+    </record> 
+
+    <!--  Añadiendo campos en la vista de ventas -->
+
+    <record id="add_fields_sales_page_other_information" model="ir.ui.view">
+      <field name="name">add.fields.sales.page.other.information</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/> 
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='expected_date']" position="after">
+          <field name="number_order" string="Numero de orden"/>
+          <field name="number_appoi" string="Numero de cita"/>
+          <field name="date_of_deli" string="Fecha de entrega"/>
+          <field name="folio_note_entry" string="Folio de nota de entrada"/>
+          <field name="field_add_capture" string="Campo addicional para capturar"/>
+        </xpath>
+      </field>
+    </record>
+    
+    <!-- Añadiendo campos en la vista factura -->
+
+    <record id="add_field_account_sale" model="ir.ui.view">
+      <field name="name">add.field.account.sale</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='l10n_mx_edi_usage']" position="after">
+          <field name="fields_sales" string="Campo venta" invisible="1"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Añadiendo campos en la vista de contactos -->
+
+    <record id="add_camp_number_store" model="ir.ui.view">
+      <field name="name">add.camp.number.store</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='property_product_pricelist']" position="after">
+          <field name="number_store" string="Numero de tienda" />
+        </xpath>
+      </field>
+    </record>
+
+    <record id="labels_pallets_tree" model="ir.ui.view">
+      <field name="name">Etiquetas tarimas</field>
+      <field name="model">labels.pallets</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="turn" />
+          <field name="pallet" />
+          <field name="date" />
+          </tree>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

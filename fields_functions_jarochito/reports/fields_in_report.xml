@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	
+	<template id="add_fields_report" inherit_id="sale.report_saleorder_document">
+		
+		<xpath expr="//div[@name='payment_term']" position="after">
+			
+			<div name="num_order" class="col-auto mw-100 mb-2">
+				<strong>Numero de orden:</strong>
+				<p class="m-0" t-field="doc.number_order"/>
+			</div>
+
+			<div name="num_appoi" class="col-auto mw-100 mb-2">
+				<strong>Numero de cita:</strong>
+				<p class="m-0" t-field="doc.number_appoi"/>
+			</div>
+
+			<div name="date_delivery" class="col-auto mw-100 mb-2">
+				<strong>Fecha de entrega:</strong>
+				<p class="m-0" t-field="doc.date_of_deli"/>
+			</div>
+
+		</xpath>
+
+	</template>
+
+</odoo>

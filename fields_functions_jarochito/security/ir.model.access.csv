@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_class_product,class.product,model_class_product,base.group_erp_manager,1,1,1,1
+
+access_presentation_product,presentation.product,model_presentation_product,base.group_erp_manager,1,1,1,1
+
+access_typecontainer_product,typecontainer.product,model_typecontainer_product,base.group_erp_manager,1,1,1,1
+
+access_taste_product,taste.product,model_taste_product,base.group_erp_manager,1,1,1,1
+
+access_brand_product,brand.product,model_brand_product,base.group_erp_manager,1,1,1,1
+
+access_labels_pallets,labels.pallets,model_labels_pallets,base.group_erp_manager,1,1,1,1
+
+access_pallets,pallets,model_pallets,base.group_erp_manager,1,1,1,1
