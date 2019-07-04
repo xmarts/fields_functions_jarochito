@@ -133,7 +133,7 @@ class LabelsPallets(models.Model):
 		cr.execute('select "id" from "labels_pallets" order by "id" desc limit 1')
 		id_returned = cr.fetchone()
 		if id_returned == None:
-			id_reutrned = (0,)
+			id_returned = (0,)
 		text = ''
 		pref = 'Etiq-'
 		if((max(id_returned) + 1) < 100):
