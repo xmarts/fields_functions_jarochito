@@ -35,7 +35,7 @@
       <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
           <xpath expr="//field[@name='barcode']" position="after">
-            <field name="units_prod" string="Cantidad por producto" />
+            <field name="units_prod_product" string="Cantidad por producto" />
           </xpath>
         </field>
     </record>
