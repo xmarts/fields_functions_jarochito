@@ -28,6 +28,17 @@
           </xpath>
         </field>
     </record>
+
+    <record id="add_field_units_product" model="ir.ui.view">
+      <field name="name">add.field.product.units</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='barcode']" position="after">
+            <field name="units_prod" string="Cantidad por producto" />
+          </xpath>
+        </field>
+    </record>
   
     <!-- Añadiendo campos en la vista de contacto -->
 

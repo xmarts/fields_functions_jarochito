@@ -44,11 +44,24 @@ class AddCodeBrandProduct(models.Model):
 
 	_rec_name = 'brand'
 
+class AddCampProductProduct(models.Model):
+
+	_inherit = 'product.product'
+
+	units_prod_product = fields.Char( string = 'Cantidad por producto' , compute = '_get_units_prod' )
+
+	def _get_units_prod(self):
+		units = re.split('/', self.name)
+		if len(units) == 2:
+			self.units_prod_product = units[1]
+		else:
+			self.units_prod_product = 0
+
 class AddCampsProductPage(models.Model):
 
 	_inherit = 'product.template'
 
-	units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units')
+	units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units' )
 
 	#-- Relación para agregar clases al producto
 	clase_prod = fields.Many2one( 'class.product' , string = 'Clase' )
