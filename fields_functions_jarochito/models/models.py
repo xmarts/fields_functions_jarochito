@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api, _
 from openerp.exceptions import UserError, RedirectWarning, ValidationError
+import re
 
 class AddClaseProduct(models.Model):
 
@@ -47,6 +48,8 @@ class AddCampsProductPage(models.Model):
 
 	_inherit = 'product.template'
 
+	units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units')
+
 	#-- Relación para agregar clases al producto
 	clase_prod = fields.Many2one( 'class.product' , string = 'Clase' )
 	
@@ -61,6 +64,13 @@ class AddCampsProductPage(models.Model):
 
 	# -- Relación para gregar un código a la marca del producto
 	brand_product = fields.Many2one( 'brand.product' , string = 'Código de marca' )
+
+	def _get_units(self):
+		units = re.split('/', self.name)
+		if len(units) == 2:
+			self.units_prod = units[1]
+		else:
+			self.units_prod = 0
 
 class AddRateAddressDelivery(models.Model):
 
