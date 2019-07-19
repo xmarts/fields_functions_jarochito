@@ -29,16 +29,16 @@
         </field>
     </record>
 
-    <!--<record id="add_field_units_product" model="ir.ui.view">
-      <field name="name">add.field.product.units</field>
+    <record id="add_field_units" model="ir.ui.view">
+      <field name="name">add.field.product</field>
       <field name="model">product.product</field>
       <field name="inherit_id" ref="product.product_normal_form_view"/>
         <field name="arch" type="xml">
-          <xpath expr="//field[@name='barcode']" position="after">
-            <field name="units_prod_product" string="Cantidad por producto" readonly="0"/>
+          <xpath expr="//field[@name='default_code']" position="after">
+            <field name="product_units" string="Cantidad por producto" readonly="0"/>
           </xpath>
         </field>
-    </record> -->
+    </record>
   
     <!-- Añadiendo campos en la vista de contacto -->
 
