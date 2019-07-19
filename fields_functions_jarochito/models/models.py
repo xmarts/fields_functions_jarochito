@@ -48,7 +48,7 @@ class AddCampProductProduct(models.Model):
 
 	_inherit = 'product.product'
 
-	units_prod_product = fields.Char( string = 'Cantidad por producto' , compute = '_get_units_prod' )
+	units_prod_product = fields.Char( string = 'Cantidad por producto' , compute = '_get_units_prod', readonly = False )
 
 	def _get_units_prod(self):
 		units = re.split('/', self.name)
@@ -61,7 +61,7 @@ class AddCampsProductPage(models.Model):
 
 	_inherit = 'product.template'
 
-	units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units' )
+	units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units', readonly = False )
 
 	#-- Relación para agregar clases al producto
 	clase_prod = fields.Many2one( 'class.product' , string = 'Clase' )
