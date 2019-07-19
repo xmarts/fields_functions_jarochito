@@ -48,14 +48,7 @@ class AddFieldUnitsProduct(models.Model):
 
 	_inherit = 'product.product'
 
-	product_units = fields.Char( string = 'Cantidad por producto' , compute = '_get_product_units' , readonly = False)
-
-	def _get_product_units(self):
-		units_prod = re.split('/', self.name)
-		if len(units_prod) == 2:
-			self.product_units = units_prod[1]
-		else:
-			self.product_units = 0
+	product_units = fields.Char( string = 'Cantidad por producto')
 
 '''class AddCampProductProduct(models.Model):
 
