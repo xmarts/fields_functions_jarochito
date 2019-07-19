@@ -8,9 +8,9 @@
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
-          <xpath expr="//field[@name='barcode']" position="after">
+          <!--<xpath expr="//field[@name='barcode']" position="after">
             <field name="units_prod" string="Cantidad por producto" readonly="0" />
-          </xpath>
+          </xpath>-->
           <xpath expr="//page[@name='inventory']" position="after">
             <page string="Descripcion del producto">
               <group>
@@ -29,7 +29,7 @@
         </field>
     </record>
 
-    <record id="add_field_units_product" model="ir.ui.view">
+    <!--<record id="add_field_units_product" model="ir.ui.view">
       <field name="name">add.field.product.units</field>
       <field name="model">product.product</field>
       <field name="inherit_id" ref="product.product_normal_form_view"/>
@@ -38,7 +38,7 @@
             <field name="units_prod_product" string="Cantidad por producto" readonly="0"/>
           </xpath>
         </field>
-    </record>
+    </record> -->
   
     <!-- Añadiendo campos en la vista de contacto -->
 

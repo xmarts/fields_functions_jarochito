@@ -44,24 +44,24 @@ class AddCodeBrandProduct(models.Model):
 
 	_rec_name = 'brand'
 
-class AddCampProductProduct(models.Model):
+'''class AddCampProductProduct(models.Model):
 
 	_inherit = 'product.product'
 
 	units_prod_product = fields.Char( string = 'Cantidad por producto' , compute = '_get_units_prod', readonly = False )
-
+	
 	def _get_units_prod(self):
 		units = re.split('/', self.name)
 		if len(units) == 2:
 			self.units_prod_product = units[1]
 		else:
-			self.units_prod_product = 0
+			self.units_prod_product = 0'''
 
 class AddCampsProductPage(models.Model):
 
 	_inherit = 'product.template'
 
-	units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units', readonly = False )
+	#units_prod = fields.Char( string = 'Cantidad por producto' , compute = '_get_units', readonly = False )
 
 	#-- Relación para agregar clases al producto
 	clase_prod = fields.Many2one( 'class.product' , string = 'Clase' )
@@ -78,12 +78,12 @@ class AddCampsProductPage(models.Model):
 	# -- Relación para gregar un código a la marca del producto
 	brand_product = fields.Many2one( 'brand.product' , string = 'Código de marca' )
 
-	def _get_units(self):
+	'''def _get_units(self):
 		units = re.split('/', self.name)
 		if len(units) == 2:
 			self.units_prod = units[1]
 		else:
-			self.units_prod = 0
+			self.units_prod = 0'''
 
 class AddRateAddressDelivery(models.Model):
 
