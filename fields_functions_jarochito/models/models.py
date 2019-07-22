@@ -126,6 +126,12 @@ class AddFIeldManySales(models.Model):
 		search = self.env['sale.order'].search([('name','=',self.origin)], limit = 1)
 		self.fields_sales = search.id
 
+class AddFieldGLNCompany(models.Model):
+
+	_inherit = 'res.company'
+
+	field_gln_company = fields.Char( string = "GLN" )
+
 class AddFieldsContacts(models.Model):
 
 	_inherit = 'res.partner'
