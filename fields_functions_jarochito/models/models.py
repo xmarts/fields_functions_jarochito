@@ -98,6 +98,10 @@ class OnchangeDirectionFacture(models.Model):
 
 	_inherit = 'sale.order'
 
+	addenda_normal = fields.Boolean( string = "Factura normal" , default = False )
+
+	addenda_extemporanea = fields.Boolean( string = "Factura extemporanea" , default = False)
+
 	number_order = fields.Char( string = "Numero de orden" )
 
 	number_appoi = fields.Char( string = "Numero de cita" )
@@ -107,6 +111,22 @@ class OnchangeDirectionFacture(models.Model):
 	folio_note_entry = fields.Char( string = "Folio de nota de entrada" )
 
 	field_add_capture = fields.Char( string = "Campo addicional para capturar" )
+
+	@api.onchange('addenda_normal')
+	def changeAddendaNormal(self):
+		if self.addenda_normal == True:
+			self.addenda_extemporanea = False
+			search = self.env['ir.ui.view'].search([('name','=','SorianaFacturaNormal')], limit = 1)
+			if search:
+				self.partner_id.write({'l10n_mx_edi_addenda':search.id})
+	
+	@api.onchange('addenda_extemporanea')
+	def changeAddendaExtemporanea(self):
+		if self.addenda_extemporanea == True:
+			self.addenda_normal = False
+			search = self.env['ir.ui.vew'].search([('name','=','SorianaFacturaExtemporanea')], limit = 1)
+			if search:
+				self.partner_id.write({'l10n_mx_edi_addenda':search.id})
 
 	@api.onchange('partner_shipping_id')
 	def changeDirFac(self):

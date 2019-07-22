@@ -81,6 +81,10 @@
       <field name="model">sale.order</field>
       <field name="inherit_id" ref="sale.view_order_form"/> 
       <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after"> 
+          <field name="addenda_normal" string="Factura Normal"/>
+          <field name="addenda_extemporanea" string="Addenda Extemporanea"/>
+        </xpath>
         <xpath expr="//field[@name='expected_date']" position="after">
           <field name="number_order" string="Numero de orden"/>
           <field name="number_appoi" string="Numero de cita"/>
