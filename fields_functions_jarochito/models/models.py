@@ -120,6 +120,8 @@ class AddFIeldManySales(models.Model):
 
 	_inherit = 'account.invoice'
 
+	date_invoice = fields.Datetime( string = "Fecha Factura" )
+
 	fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas", compute = "getValue", readonly = True )
 
 	def getValue(self):
