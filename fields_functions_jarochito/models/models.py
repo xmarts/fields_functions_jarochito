@@ -124,7 +124,7 @@ class OnchangeDirectionFacture(models.Model):
 	def changeAddendaExtemporanea(self):
 		if self.addenda_extemporanea == True:
 			self.addenda_normal = False
-			search = self.env['ir.ui.vew'].search([('name','=','SorianaFacturaExtemporanea')], limit = 1)
+			search = self.env['ir.ui.view'].search([('name','=','SorianaFacturaExtemporanea')], limit = 1)
 			if search:
 				self.partner_id.write({'l10n_mx_edi_addenda':search.id})
 

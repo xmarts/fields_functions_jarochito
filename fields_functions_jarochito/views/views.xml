@@ -83,7 +83,7 @@
       <field name="arch" type="xml">
         <xpath expr="//field[@name='payment_term_id']" position="after"> 
           <field name="addenda_normal" string="Factura Normal"/>
-          <field name="addenda_extemporanea" string="Addenda Extemporanea"/>
+          <field name="addenda_extemporanea" string="Factura Extemporanea"/>
         </xpath>
         <xpath expr="//field[@name='expected_date']" position="after">
           <field name="number_order" string="Numero de orden"/>
