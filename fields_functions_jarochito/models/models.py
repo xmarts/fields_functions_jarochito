@@ -130,7 +130,7 @@ class AddFieldGLNCompany(models.Model):
 
 	_inherit = 'res.company'
 
-	field_gln_company = fields.Char( string = "GLN" )
+	field_gln_company = fields.Char( string = "GLN empresa" )
 
 class AddFieldsContacts(models.Model):
 
