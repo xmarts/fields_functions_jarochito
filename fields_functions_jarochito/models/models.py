@@ -50,19 +50,6 @@ class AddFieldUnitsProduct(models.Model):
 
 	product_units = fields.Char( string = 'Cantidad por producto')
 
-'''class AddCampProductProduct(models.Model):
-
-	_inherit = 'product.product'
-
-	units_prod_product = fields.Char( string = 'Cantidad por producto' , compute = '_get_units_prod', readonly = False )
-	
-	def _get_units_prod(self):
-		units = re.split('/', self.name)
-		if len(units) == 2:
-			self.units_prod_product = units[1]
-		else:
-			self.units_prod_product = 0'''
-
 class AddCampsProductPage(models.Model):
 
 	_inherit = 'product.template'
@@ -115,7 +102,7 @@ class OnchangeDirectionFacture(models.Model):
 
 	number_appoi = fields.Char( string = "Numero de cita" )
 
-	date_of_deli = fields.Datetime( string = "Fecha de entrega", required = True )
+	date_of_deli = fields.Date( string = "Fecha de entrega", required = True )
 
 	folio_note_entry = fields.Char( string = "Folio de nota de entrada" )
 
