@@ -3,6 +3,7 @@
 from odoo import models, fields, api, _
 from openerp.exceptions import UserError, RedirectWarning, ValidationError
 import re
+from datetime import datetime
 
 class AddClaseProduct(models.Model):
 
@@ -140,7 +141,7 @@ class AddFIeldManySales(models.Model):
 
 	_inherit = 'account.invoice'
 
-	date_invoice = fields.Datetime( string = "Fecha Factura" )
+	date_invoice = fields.Datetime( string = "Fecha Factura" , default = datetime.today() )
 
 	fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas", compute = "getValue", readonly = True )
 
