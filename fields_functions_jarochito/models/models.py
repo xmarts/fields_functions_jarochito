@@ -93,6 +93,8 @@ class AddRateAddressDelivery(models.Model):
 
 	shipping_number_store = fields.Char( string = "Numero de tienda" )
 
+	shipping_number_cedis = fields.Char( string = "Numero de cedis" )
+
 	shipping_type_suc = fields.Selection( [('A','Cedis'),('S','Sucursal'),('O','Oficinas')] , string = 'Tipo')
 
 	shipping_gln = fields.Char( string = "GLN" )

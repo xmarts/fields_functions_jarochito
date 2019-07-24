@@ -67,6 +67,7 @@
           <group>
             <field name="shipping_number_provider" string="Numero de proveedor" />
             <field name="shipping_number_store" string="Numero de tienda" />
+            <field name="shipping_number_cedis" string="Numero de cedis" />
             <field name="shipping_type_suc" string="Tipo (Cedis, Sucursal, Oficinas)" />
             <field name="shipping_gln" string="GLN" />
           </group>
