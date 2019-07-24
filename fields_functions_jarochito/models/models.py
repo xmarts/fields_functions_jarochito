@@ -89,6 +89,14 @@ class AddRateAddressDelivery(models.Model):
 
 	number_provideer = fields.Char( string = 'Numero de proveedor' )
 
+	shipping_number_provider = fields.Char( string = "Numero de proveedor" )
+
+	shipping_number_store = fields.Char( string = "Numero de tienda" )
+
+	shipping_type_suc = fields.Selection( [('A','Cedis'),('S','Sucursal'),('O','Oficinas')] , string = 'Tipo')
+
+	shipping_gln = fields.Char( string = "GLN" )
+
 	def getValue(self):
 		if self.number_sucursal and self.type_suc:
 			self.format_suc = str(self.type_suc) + str(self.number_sucursal)
