@@ -117,7 +117,7 @@ class OnchangeDirectionFacture(models.Model):
 
 	number_appoi = fields.Char( string = "Numero de cita" )
 
-	date_of_order = fields.Char( string = "Fecha del pedido del cliente" )
+	date_of_order = fields.Date( string = "Fecha del pedido del cliente" )
 
 	date_of_deli = fields.Date( string = "Fecha de entrega", required = True )
 
