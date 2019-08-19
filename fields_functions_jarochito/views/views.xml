@@ -97,6 +97,7 @@
         <xpath expr="//field[@name='expected_date']" position="after">
           <field name="number_order" string="Numero de orden"/>
           <field name="number_appoi" string="Numero de cita"/>
+          <field name="date_of_order" string="Fecha del pedido del cliente" />
           <field name="date_of_deli" string="Fecha de entrega"/>
           <field name="folio_note_entry" string="Folio de nota de entrada"/>
           <field name="field_add_capture" string="Campo addicional para capturar"/>
