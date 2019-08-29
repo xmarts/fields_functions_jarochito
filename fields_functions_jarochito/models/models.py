@@ -83,6 +83,8 @@ class AddRateAddressDelivery(models.Model):
 
 	type_suc = fields.Selection( [('A','Cedis'),('S','Sucursal'),('O','Oficinas')] , string = 'Tipo')
 
+	type_customer = fields.Selection([('mayorista','Mayorista'),('maquila','Maquila'),('autoservicios','Autoservicios'),('rutas','Rutas')], string = 'Tipo de cliente')
+
 	format_suc = fields.Char( compute = "getValue", readonly=True )
 
 	gln = fields.Char( string = 'GLN' )
