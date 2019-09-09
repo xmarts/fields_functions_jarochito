@@ -47,6 +47,7 @@
         <field name="arch" type="xml">
           <xpath expr="//field[@name='partner_id']" position="after">
             <field name="field_gln_company" string="GLN"/>
+            <field name="field_num_levicom" string="Levicom"/>
           </xpath>
         </field>
     </record>

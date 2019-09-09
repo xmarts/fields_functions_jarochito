@@ -158,6 +158,11 @@ class AddFIeldManySales(models.Model):
 	#date_invoice = fields.Datetime( string = "Fecha Factura" , default = datetime.today() )
 
 	fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas", compute = "getValue", readonly = True )
+	
+	def getDateFormatedAdd(self, paramDate):
+		date_time_obj = datetime.datetime.strptime(str(paramDate), '%Y-%m-%d')
+		date_return = str(date_time_obj.date())
+		return date_return.replace('-','')
 
 	def getValue(self):
 		search = self.env['sale.order'].search([('name','=',self.origin)], limit = 1)
@@ -168,6 +173,7 @@ class AddFieldGLNCompany(models.Model):
 	_inherit = 'res.company'
 
 	field_gln_company = fields.Char( string = "GLN empresa" )
+	field_num_levicom = fields.Char( string = "Levicom" )
 
 class AddFieldsContacts(models.Model):
 
