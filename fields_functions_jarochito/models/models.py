@@ -3,7 +3,7 @@
 from odoo import models, fields, api, _
 from openerp.exceptions import UserError, RedirectWarning, ValidationError
 import re
-from datetime import datetime
+import datetime
 
 class AddClaseProduct(models.Model):
 
