@@ -48,6 +48,7 @@
           <xpath expr="//field[@name='partner_id']" position="after">
             <field name="field_gln_company" string="GLN"/>
             <field name="field_num_levicom" string="Levicom"/>
+            <field name="field_num_certificate" string="Numero de aprovación del certificado" />
           </xpath>
         </field>
     </record>

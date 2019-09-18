@@ -174,6 +174,7 @@ class AddFieldGLNCompany(models.Model):
 
 	field_gln_company = fields.Char( string = "GLN empresa" )
 	field_num_levicom = fields.Char( string = "Levicom" )
+	field_num_certificate = fields.Char( string = "Numero de aprovación del certificado" )
 
 class AddFieldsContacts(models.Model):
 
