@@ -29,6 +29,24 @@
         </field>
     </record>
 
+    <record id="add_page_info_addenda" model="ir.ui.view">
+      <field name="name">add.page.info.addenda</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='other_info']" position="after">
+          <page string="Informacion de addenda">
+            <group>
+              <group>
+              </group>
+              <group>
+              </group>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
     <record id="add_field_units" model="ir.ui.view">
       <field name="name">add.field.product</field>
       <field name="model">product.product</field>
