@@ -101,6 +101,8 @@ class AddRateAddressDelivery(models.Model):
 
 	shipping_gln = fields.Char( string = "GLN" )
 
+	contact_name = fields.Char(string="Nombre de contacto")
+
 	def getValue(self):
 		if self.number_sucursal and self.type_suc:
 			self.format_suc = str(self.type_suc) + str(self.number_sucursal)
