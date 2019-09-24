@@ -90,7 +90,7 @@
             <field name="shipping_number_cedis" string="Numero de cedis" />
             <field name="shipping_type_suc" string="Tipo (Cedis, Sucursal, Oficinas)" />
             <field name="shipping_gln" string="GLN" />
-            <field name="contact_name" string="GLN" />
+            <field name="contact_name" string="Nombre de contacto" />
           </group>
         </xpath>
         <xpath expr="//field[@name='property_product_pricelist']" position="after">
