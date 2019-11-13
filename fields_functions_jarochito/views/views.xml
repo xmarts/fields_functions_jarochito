@@ -95,7 +95,7 @@
         </xpath>
         <xpath expr="//field[@name='property_product_pricelist']" position="after">
           <field name="most_ieps" string="Mostrar IEPS" invisible="1"/>
-          <field name="type_customer" string="Tipo de cliente" />
+          <field name="type_customer" string="Tipo de cliente" invisible="1"/>
           <field name="number_sucursal" string="Numero de sucursal" />
           <field name="type_suc" string="Tipo" />
           <field name="gln" string="GLN" />
