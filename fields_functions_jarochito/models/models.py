@@ -165,10 +165,16 @@ class AddFIeldManySales(models.Model):
 		date_time_obj = datetime.datetime.strptime(str(paramDate), '%Y-%m-%d')
 		date_return = str(date_time_obj.date())
 		return date_return.replace('-','')
-
+		
+	@api.one
 	def getValue(self):
 		search = self.env['sale.order'].search([('name','=',self.origin)], limit = 1)
-		self.fields_sales = search.id
+		if search:
+			self.fields_sales = search.id
+		else:
+			factura = self.env['account.invoice'].search([('number','=',self.origin)], limit = 1)
+			searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
+			self.fields_sales = searchs.id
 
 class AddFieldGLNCompany(models.Model):
 
