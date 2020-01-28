@@ -136,6 +136,7 @@
       <field name="arch" type="xml">
         <xpath expr="//field[@name='l10n_mx_edi_usage']" position="after">
           <field name="fields_sales" string="Campo venta" invisible="1"/>
+          <field name="pos_order_id" invisible="0"/>
         </xpath>
       </field>
     </record>

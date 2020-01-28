@@ -160,6 +160,7 @@ class AddFIeldManySales(models.Model):
 	#date_invoice = fields.Datetime( string = "Fecha Factura" , default = datetime.today() )
 
 	fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas", compute = "getValue", readonly = True )
+	pos_order_id = fields.Many2one( 'pos.order', string = "Orden de POS", compute = "getValue", readonly = True )
 	
 	def getDateFormatedAdd(self, paramDate):
 		date_time_obj = datetime.datetime.strptime(str(paramDate), '%Y-%m-%d')
@@ -175,6 +176,9 @@ class AddFIeldManySales(models.Model):
 			factura = self.env['account.invoice'].search([('number','=',self.origin)], limit = 1)
 			searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
 			self.fields_sales = searchs.id
+		searchp = self.env['pos.order'].search([('name','=',self.origin)], limit = 1)
+		if searchp:
+			self.pos_order_id = searchp.id
 
 class AddFieldGLNCompany(models.Model):
 
