@@ -209,6 +209,6 @@ class Pallets(models.Model):
 
 
 class AddAccountPaymentTerm(models.Model):
-    _inherit = 'account.payment.term'
+	_inherit = 'account.payment.term'
 
-    number_days = fields.Integer(string='Numero de dias')
+	number_days = fields.Integer(string='Numero de dias')
