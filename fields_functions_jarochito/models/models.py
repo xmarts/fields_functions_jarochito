@@ -76,32 +76,23 @@ class AddRateAddressDelivery(models.Model):
 	_inherit = 'res.partner'
 
 	rate_address = fields.Many2one( 'product.pricelist', string = 'Tarifa' )
-
 	most_ieps = fields.Boolean( string = 'Mostrar IEPS' )
-
 	number_sucursal = fields.Char( string="Numero" )
-
 	type_suc = fields.Selection( [('A','Cedis'),('S','Sucursal'),('O','Oficinas')] , string = 'Tipo')
-
 	type_customer = fields.Selection([('mayorista','Mayorista'),('maquila','Maquila'),('autoservicios','Autoservicios'),('rutas','Rutas')], string = 'Tipo de cliente')
-
 	format_suc = fields.Char( compute = "getValue", readonly=True )
-
 	gln = fields.Char( string = 'GLN' )
-
 	number_provideer = fields.Char( string = 'Numero de proveedor' )
-
 	shipping_number_provider = fields.Char( string = "Numero de proveedor" )
-
 	shipping_number_store = fields.Char( string = "Numero de tienda" )
-
 	shipping_number_cedis = fields.Char( string = "Numero de cedis" )
-
 	shipping_type_suc = fields.Selection( [('A','Cedis'),('S','Sucursal'),('O','Oficinas')] , string = 'Tipo')
-
 	shipping_gln = fields.Char( string = "GLN" )
-
 	contact_name = fields.Char(string="Nombre de contacto")
+	number_store = fields.Char(string="Numero de tienda" )
+	child_name_contact = fields.Char(string="Child Contact Name")
+
+
 
 	def getValue(self):
 		if self.number_sucursal and self.type_suc:
@@ -114,19 +105,12 @@ class OnchangeDirectionFacture(models.Model):
 	_inherit = 'sale.order'
 
 	addenda_normal = fields.Boolean( string = "Factura normal" , default = False )
-
 	addenda_extemporanea = fields.Boolean( string = "Factura extemporanea" , default = False)
-
 	number_order = fields.Char( string = "Numero de orden" )
-
 	number_appoi = fields.Char( string = "Numero de cita" )
-
 	date_of_order = fields.Date( string = "Fecha del pedido del cliente" )
-
 	date_of_deli = fields.Date( string = "Fecha de entrega", required = True )
-
 	folio_note_entry = fields.Char( string = "Folio de nota de entrada" )
-
 	field_add_capture = fields.Char( string = "Campo addicional para capturar" )
 
 	@api.onchange('addenda_normal')
@@ -188,11 +172,10 @@ class AddFieldGLNCompany(models.Model):
 	field_num_levicom = fields.Char( string = "Levicom" )
 	field_num_certificate = fields.Char( string = "Numero de aprovación del certificado" )
 
-class AddFieldsContacts(models.Model):
+# class AddFieldsContacts(models.Model):
 
-	_inherit = 'res.partner'
+# 	_inherit = 'res.partner'
 
-	number_store = fields.Char( string = "Numero de tienda" )
 
 class LabelsPallets(models.Model):
 
@@ -213,11 +196,8 @@ class LabelsPallets(models.Model):
 		return text
 
 	name = fields.Char( string = "Nombre", readonly = True, default = _name_default )
-
 	turn = fields.Selection( [('mat','Matutino'),('ves','Vespertino'),('noc','Nocturno')], string = "Turno" )
-
 	pallet = fields.Many2one( 'pallets', string = "Tarima" )
-
 	date = fields.Date( string = "Fecha" )
 
 class Pallets(models.Model):
@@ -225,13 +205,10 @@ class Pallets(models.Model):
 	_name = 'pallets'
 
 	pallet_name = fields.Char( string = "Tarima" )
-
 	_rec_name = 'pallet_name'
 
 
 class AddAccountPaymentTerm(models.Model):
     _inherit = 'account.payment.term'
 
-    number_days = fields.Integer(
-        string='Numero de dias',
-    )
+    number_days = fields.Integer(string='Numero de dias')
