@@ -193,7 +193,6 @@ class AddFieldsContacts(models.Model):
 	_inherit = 'res.partner'
 
 	number_store = fields.Char( string = "Numero de tienda" )
-	child_contact_name = fields.Char(string="Contacto Name Child")
 
 class LabelsPallets(models.Model):
 
