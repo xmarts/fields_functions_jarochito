@@ -236,3 +236,15 @@ class AddAccountPaymentTerm(models.Model):
     number_days = fields.Integer(
         string='Numero de dias',
     )
+
+class AddFieldsBank(models.Model):
+	"""docstring for Add"""
+	_inherit = "res.partner.bank"
+
+	last_acc_number = fields.Char(string="ultimos 4 digitos")
+
+	
+	def get_last_numbers(self):
+		if self.acc_number:
+			self.last_acc_number = self.acc_number[-4:]
+			

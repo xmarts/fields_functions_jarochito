@@ -179,5 +179,16 @@
       </field>
     </record>
 
+    <record id="add_camp_last_number" model="ir.ui.view">
+      <field name="name">add_camp_last_number</field>
+      <field name="model">res.partner.bank</field>
+      <field name="inherit_id" ref="base.view_partner_bank_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='acc_number']" position="after">
+          <field name="last_acc_number" string="Last 4 Numbers" />
+        </xpath>
+      </field>
+    </record>    
+
   </data>
 </odoo>
