@@ -161,7 +161,8 @@ class AddFIeldManySales(models.Model):
 
 	fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas", compute = "getValue", readonly = True )
 	pos_order_id = fields.Many2one( 'pos.order', string = "Orden de POS", compute = "getValue", readonly = True )
-	
+	date_of_sale_order = fields.Date(string="Fecha de pedido del cliente")
+
 	def getDateFormatedAdd(self, paramDate):
 		date_time_obj = datetime.datetime.strptime(str(paramDate), '%Y-%m-%d')
 		date_return = str(date_time_obj.date())
