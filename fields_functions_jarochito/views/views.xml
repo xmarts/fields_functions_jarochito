@@ -100,6 +100,7 @@
           <field name="type_suc" string="Tipo" />
           <field name="gln" string="GLN" />
           <field name="number_provideer" string="Numero de proveedor" />
+          <field name="no_invoice"/>
           <field name="format_suc" string="Formato entrega" invisible="1" />
         </xpath>
       </field>
