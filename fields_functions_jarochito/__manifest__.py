@@ -29,9 +29,10 @@
         'views/views.xml',
         'views/templates.xml',
         'views/menu_items.xml',
-        'reports/fields_in_report.xml',
-        'reports/layout.xml',
-        'reports/print_pallets.xml'
+        'views/sale_order_view.xml',
+        #'reports/fields_in_report.xml',
+        #'reports/layout.xml',
+        #'reports/print_pallets.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

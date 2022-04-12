@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from openerp.exceptions import UserError, RedirectWarning, ValidationError
 import re
 import datetime
 
@@ -153,32 +152,7 @@ class OnchangeDirectionFacture(models.Model):
 			else:
 				self.pricelist_id = self.partner_shipping_id.property_product_pricelist.id
 
-class AddFIeldManySales(models.Model):
 
-	_inherit = 'account.invoice'
-
-	#date_invoice = fields.Datetime( string = "Fecha Factura" , default = datetime.today() )
-
-	fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas", compute = "getValue", readonly = True )
-	pos_order_id = fields.Many2one( 'pos.order', string = "Orden de POS", compute = "getValue", readonly = True )
-	
-	def getDateFormatedAdd(self, paramDate):
-		date_time_obj = datetime.datetime.strptime(str(paramDate), '%Y-%m-%d')
-		date_return = str(date_time_obj.date())
-		return date_return.replace('-','')
-		
-	@api.one
-	def getValue(self):
-		search = self.env['sale.order'].search([('name','=',self.origin)], limit = 1)
-		if search:
-			self.fields_sales = search.id
-		else:
-			factura = self.env['account.invoice'].search([('number','=',self.origin)], limit = 1)
-			searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
-			self.fields_sales = searchs.id
-		searchp = self.env['pos.order'].search([('name','=',self.origin)], limit = 1)
-		if searchp:
-			self.pos_order_id = searchp.id
 
 class AddFieldGLNCompany(models.Model):
 

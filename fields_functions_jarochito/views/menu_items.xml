@@ -60,9 +60,7 @@
 
     <record id="labels_pallets_id" model="ir.actions.act_window">
       <field name='name'>Etiquetas tarimas</field>
-      <field name='type'>ir.actions.act_window</field>
       <field name='res_model'>labels.pallets</field>
-      <field name='view_type'>form</field>
       <field name='view_mode'>tree,form</field>
     </record>
 

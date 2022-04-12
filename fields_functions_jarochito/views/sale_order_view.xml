@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+
+    <!--  Añadiendo campos en la vista de ventas -->
+
+    <record id="add_fields_sales_page_other_information" model="ir.ui.view">
+      <field name="name">add.fields.sales.page.other.information</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/> 
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after"> 
+          <field name="addenda_normal" string="Factura Normal"/>
+          <field name="addenda_extemporanea" string="Factura Extemporanea"/>
+        </xpath>
+        <xpath expr="//group[@name='sale_reporting']" position="after">
+          <group>
+            <field name="number_order" string="Numero de orden"/>
+            <field name="number_appoi" string="Numero de cita"/>
+            <field name="date_of_order" string="Fecha del pedido del cliente" />
+            <field name="date_of_deli" string="Fecha de entrega"/>
+            <field name="folio_note_entry" string="Folio de nota de entrada"/>
+            <field name="field_add_capture" string="Campo addicional para capturar"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+    
+ 
+  </data>
+</odoo>
