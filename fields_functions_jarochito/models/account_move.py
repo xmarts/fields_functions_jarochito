@@ -45,3 +45,12 @@ class AccountMove(models.Model):
 		# searchp = self.env['pos.order'].search([('name','=',self.invoice_origin)], limit = 1)
 		# if searchp:
 		self.pos_order_id = False
+
+
+	def _get_values_addenda(self):
+		for rec in self:
+			for l in rec.edi_document_ids:
+				cfdi_3_3_edi = self.env.ref('l10n_mx_edi.edi_cfdi_3_3')
+				if l.edi_format_id == cfdi_3_3_edi:
+					invoice = l.move_id
+					return l.edi_format_id._l10n_mx_edi_get_invoice_cfdi_values(invoice)
