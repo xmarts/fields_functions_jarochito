@@ -25,7 +25,7 @@ class AddCodeTypeContainerProduct(models.Model):
 	_name = 'typecontainer.product'
 
 	code = fields.Char( string = 'Cod. Tipo de envase' )
-	
+
 	_rec_name = 'code'
 
 class AddTasteProduct(models.Model):
@@ -57,14 +57,14 @@ class AddCampsProductPage(models.Model):
 
 	#-- Relación para agregar clases al producto
 	clase_prod = fields.Many2one( 'class.product' , string = 'Clase' )
-	
+
 	#-- Relación para agregar una presentación al producto
 	presentation_prod = fields.Many2one( 'presentation.product' , string = 'Presentación' )
 
-	#-- Relación para gregar un código al envase del producto 
+	#-- Relación para gregar un código al envase del producto
 	code_container_prod = fields.Many2one( 'typecontainer.product' , string = 'Cod. Tipo de envase' )
 
-	# -- Relación para agregar un sabor al producto 
+	# -- Relación para agregar un sabor al producto
 	taste_product = fields.Many2one( 'taste.product' , string = 'Sabor' )
 
 	# -- Relación para gregar un código a la marca del producto
@@ -135,7 +135,7 @@ class OnchangeDirectionFacture(models.Model):
 			search = self.env['ir.ui.view'].search([('name','=','SorianaFacturaNormal')], limit = 1)
 			if search:
 				self.partner_id.write({'l10n_mx_edi_addenda':search.id})
-	
+
 	@api.onchange('addenda_extemporanea')
 	def changeAddendaExtemporanea(self):
 		if self.addenda_extemporanea == True:
@@ -209,3 +209,13 @@ class AddAccountPaymentTerm(models.Model):
     number_days = fields.Integer(
         string='Numero de dias',
     )
+
+
+class AddFieldsBank(models.Model):
+	_inherit = "res.partner.bank"
+
+	last_acc_number = fields.Char(string="ultimos 4 digitos")
+
+	def get_last_numbers(self):
+		if self.acc_number:
+			self.last_acc_number = self.acc_number[-4:]
