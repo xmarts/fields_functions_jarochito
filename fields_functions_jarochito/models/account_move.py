@@ -23,7 +23,7 @@ class AccountMove(models.Model):
 
     #date_invoice = fields.Datetime( string = "Fecha Factura" , default = datetime.today() )
 
-    fields_sales = fields.Many2one( 'sale.order', string = "Campo ventas")
+    fields_sales = fields.Many2one( 'sale.order', compute="getValue", string = "Campo ventas")
     fecha_entrega = fields.Datetime(string="Fecha Entrega")
     pos_order_id = fields.Many2one( 'pos.order', string = "Orden de POS",readonly = True )
     addenda_folio = fields.Char(string='Folio')
@@ -36,24 +36,28 @@ class AccountMove(models.Model):
 
     # @api.one
     def getValue(self):
-        # search = self.env['sale.order'].search([('name','=',self.invoice_origin)], limit = 1)
-        # if search:
-        #   self.fields_sales = search.id
-        # else:
-        #   factura = self.env['account.move'].search([('number','=',self.invoice_origin)], limit = 1)
-        #   searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
-        #   self.fields_sales = searchs.id
+        search = self.env['sale.order'].search([('name','=',self.invoice_origin)], limit = 1)
+        self.fields_sales = False
+        if search:
+            self.fields_sales = search.id
+        else:
+            self.fields_sales = False
+            # factura = self.env['account.move'].search([('number','=',self.invoice_origin)], limit = 1)
+            # searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
+            # self.fields_sales = searchs.id
         # searchp = self.env['pos.order'].search([('name','=',self.invoice_origin)], limit = 1)
         # if searchp:
-        self.pos_order_id = False
+        #     self.pos_order_id = searchp.id
 
     def _get_values_addenda(self):
+        print('---------------------------_get_values_addenda-----------------------------')
         for rec in self:
             for l in rec.edi_document_ids:
                 cfdi_3_3_edi = self.env.ref('l10n_mx_edi.edi_cfdi_3_3')
                 if l.edi_format_id == cfdi_3_3_edi:
                     invoice = l.move_id
                     xml = l.edi_format_id._l10n_mx_edi_get_invoice_cfdi_values(invoice)
+                    print('xml', xml)
                     return l.edi_format_id._l10n_mx_edi_get_invoice_cfdi_values(invoice)
 
     tipo_relacion = fields.Char(
