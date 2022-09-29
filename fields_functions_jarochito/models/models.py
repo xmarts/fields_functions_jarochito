@@ -122,7 +122,7 @@ class OnchangeDirectionFacture(models.Model):
 
 	date_of_order = fields.Date( string = "Fecha del pedido del cliente" )
 
-	date_of_deli = fields.Date( string = "Fecha de entrega", required = True )
+	date_of_deli = fields.Date( string = "Fecha de entrega")
 
 	folio_note_entry = fields.Char( string = "Folio de nota de entrada" )
 
