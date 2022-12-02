@@ -34,7 +34,7 @@ class AccountMove(models.Model):
         date_return = str(date_time_obj.date())
         return date_return.replace('-','')
 
-    # @api.one
+
     def getValue(self):
         for rec in self:
             search = self.env['sale.order'].search([('name','=',rec.invoice_origin)], limit = 1)
