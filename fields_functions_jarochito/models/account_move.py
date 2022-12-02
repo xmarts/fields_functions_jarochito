@@ -36,18 +36,19 @@ class AccountMove(models.Model):
 
     # @api.one
     def getValue(self):
-        search = self.env['sale.order'].search([('name','=',self.invoice_origin)], limit = 1)
-        self.fields_sales = False
-        if search:
-            self.fields_sales = search.id
-        else:
-            self.fields_sales = False
-            # factura = self.env['account.move'].search([('number','=',self.invoice_origin)], limit = 1)
-            # searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
-            # self.fields_sales = searchs.id
-        # searchp = self.env['pos.order'].search([('name','=',self.invoice_origin)], limit = 1)
-        # if searchp:
-        #     self.pos_order_id = searchp.id
+        for rec in self:
+            search = self.env['sale.order'].search([('name','=',self.invoice_origin)], limit = 1)
+            rec.fields_sales = False
+            if search:
+                rec.fields_sales = search.id
+            else:
+                rec.fields_sales = False
+                # factura = self.env['account.move'].search([('number','=',self.invoice_origin)], limit = 1)
+                # searchs = self.env['sale.order'].search([('name','=',factura.origin)], limit = 1)
+                # self.fields_sales = searchs.id
+            # searchp = self.env['pos.order'].search([('name','=',self.invoice_origin)], limit = 1)
+            # if searchp:
+            #     self.pos_order_id = searchp.id
 
     def _get_values_addenda(self):
         print('---------------------------_get_values_addenda-----------------------------')
