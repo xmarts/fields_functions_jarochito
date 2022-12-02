@@ -37,7 +37,7 @@ class AccountMove(models.Model):
     # @api.one
     def getValue(self):
         for rec in self:
-            search = self.env['sale.order'].search([('name','=',self.invoice_origin)], limit = 1)
+            search = self.env['sale.order'].search([('name','=',rec.invoice_origin)], limit = 1)
             rec.fields_sales = False
             if search:
                 rec.fields_sales = search.id
